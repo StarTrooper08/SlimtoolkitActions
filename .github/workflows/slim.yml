@@ -29,4 +29,4 @@ jobs:
       
       - name: Optimize Docker image using SlimToolkit
         run: |
-          slim build --target --http-probe=false ubuntu:latest
+          slim build --target --http-probe=false dfd64a3b4
