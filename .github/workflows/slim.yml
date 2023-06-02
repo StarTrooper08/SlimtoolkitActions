@@ -21,9 +21,10 @@ jobs:
           sudo mv dist_linux/slim-sensor /usr/local/bin/
           sudo mv dist_linux/slim /usr/local/bin/
           
-      - name: Pull Docker image
-        run: docker pull ubuntu:latest
+    #  - name: Pull Docker image
+    #   run: docker pull ubuntu:latest
         
+     # using slim to pull image directly from registry
       - name: Optimize Docker image using SlimToolkit
         run: |
-          slim build --http-probe=false --pull ubuntu:latest
+          slim build --http-probe=false --pull ghcr.io/jamestripp/r-dev-image:main
