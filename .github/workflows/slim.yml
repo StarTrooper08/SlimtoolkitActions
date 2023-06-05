@@ -21,14 +21,23 @@ jobs:
           sudo mv dist_linux/slim-sensor /usr/local/bin/
           sudo mv dist_linux/slim /usr/local/bin/
           
-    #  - name: Pull Docker image
-    #   run: docker pull ubuntu:latest
-        
      # using slim to pull image directly from registry
-      - name: Optimize Docker image using SlimToolkit
-        run: |
-          slim build --http-probe=false --pull ghcr.io/jamestripp/r-dev-image:main
-      
-      - name: docker image ls
-        run: |
-          docker images
+      #- name: Optimize Docker image using SlimToolkit
+       # run: |
+        #  slim build --http-probe=false --pull ghcr.io/jamestripp/r-dev-image:main
+          
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+         registry: ghcr.io
+         username: ${{ github.repository_owner }}
+         password: ${{ secrets.GITHUB_TOKEN }}
+         
+      - name: Push optimized Docker image
+        uses: docker/build-push-action@v4
+        with:
+         context: .
+         push: true
+         tags: ghcr.io/${{ github.repository }}/r-dev-image:latest
+
+
