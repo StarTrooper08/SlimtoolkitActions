@@ -38,6 +38,6 @@ jobs:
         with:
          context: .
          push: true
-         tags: ghcr.io/startooper08/r-dev-image:latest
+         tags: ghcr.io/StarTooper08/r-dev-image:latest
 
 
