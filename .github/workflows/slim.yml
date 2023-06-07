@@ -36,7 +36,7 @@ jobs:
          
       - name: Build Docker Image
         shell: bash
-        run: docker build . -t ghcr.io/StarTrooper08/r-dev-image:latest
+        run: docker build . -t ghcr.io/${{ github.repository_owner }}/r-dev-image:latest
         
       - name: List Docker Images
         shell: bash
