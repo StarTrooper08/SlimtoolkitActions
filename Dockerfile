@@ -1,1 +1,1 @@
-FROM ghcr.io/jamestripp/r-dev-image:main
+FROM mcr.microsoft.com/devcontainers/cpp:ubuntu-20.04
