@@ -36,7 +36,7 @@ jobs:
          
       - name: Build Docker Image
         shell: bash
-        run: docker build . -t ghcr.io/${{ github.repository_owner }}/r-dev-image:latest
+        run: docker build . -t ghcr.io/startrooper08/r-dev-image:latest
         
       - name: List Docker Images
         shell: bash
@@ -44,7 +44,7 @@ jobs:
         
       - name: Optimize Docker Image
         shell: bash
-        run: slim build --http-probe=false  --include-bin --pull ghcr.io/StarTrooper08/r-dev-image:latest
+        run: slim build --http-probe=false --include-bin --pull ghcr.io/startrooper08/r-dev-image:latest
         
       - name: Push Docker Image to Github Container Registry
         shell: bash
