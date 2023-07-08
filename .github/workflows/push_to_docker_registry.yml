@@ -36,7 +36,7 @@ jobs:
         
       - name: Optimize Docker Image
         shell: bash
-        run: slim build --target atharvas08/r-dev-image:latest --include-bin
+        run: slim build --http-probe=false --include-bin --pull ghcr.io/startrooper08/r-dev-image:latest
         
       - name: Push Docker Image to Dockerhub
         shell: bash
