@@ -19,6 +19,10 @@ jobs:
           sudo mv dist_linux/docker-slim /usr/local/bin/
           sudo mv dist_linux/slim-sensor /usr/local/bin/
           sudo mv dist_linux/slim /usr/local/bin/
+      
+      - name : update slim
+        shell: bash
+        run: slim update
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
@@ -36,7 +40,7 @@ jobs:
         
       - name: Optimize Docker Image
         shell: bash
-        run: slim build --http-probe=false --pull --include-bin usr/bin/jq atharvas08/r-dev-image:latest
+        run: slim build --http-probe=false --pull --include-bin /usr/bin/bash atharvas08/r-dev-image:latest
         
       - name: Push Docker Image to Dockerhub
         shell: bash
