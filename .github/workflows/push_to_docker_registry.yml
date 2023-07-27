@@ -40,7 +40,7 @@ jobs:
         
       - name: Optimize Docker Image
         shell: bash
-        run: slim build --http-probe=false --pull --include-path /bin/ atharvas08/r-dev-image:latest
+        run: slim build --http-probe=false --pull --include-bin usr/bin/cmake atharvas08/r-dev-image:latest
         
       - name: Push Docker Image to Dockerhub
         shell: bash
